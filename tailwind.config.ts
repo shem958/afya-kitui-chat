@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,6 +20,12 @@ export default {
 		},
 		extend: {
 			colors: {
+				// Custom Afya Kitui colors inspired by Kenyan landscapes
+				"afya-primary": "#E56B1F", // Terracotta orange
+				"afya-secondary": "#2C9369", // Forest green
+				"afya-accent": "#F9C846", // Warm yellow
+				"afya-neutral": "#F5F0E6", // Off-white
+				"afya-dark": "#433A3F", // Deep brown
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -63,6 +70,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontSize: {
+				// Enhanced font sizes for accessibility
+				'2xl': '1.75rem',
+				'3xl': '2rem',
+				'4xl': '2.5rem',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -84,11 +97,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-slow': 'pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
 			}
 		}
 	},
