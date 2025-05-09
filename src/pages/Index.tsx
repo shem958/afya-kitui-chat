@@ -9,7 +9,7 @@ import QuickActionButtons from '@/components/QuickActionButtons';
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { FlowChart } from 'lucide-react';
+import { GitBranch } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
@@ -36,7 +36,7 @@ const Index = () => {
               <QuickActionButtons onActionClick={handleQuickAction} />
               <Button variant="outline" asChild className="flex items-center gap-2 border-afya-secondary hover:bg-afya-secondary hover:text-white">
                 <Link to="/flowcharts">
-                  <FlowChart className="h-4 w-4" />
+                  <GitBranch className="h-4 w-4" />
                   <span>{t('viewFlowcharts') || 'View Flowcharts'}</span>
                 </Link>
               </Button>
