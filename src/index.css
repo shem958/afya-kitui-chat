@@ -91,7 +91,11 @@
   }
   
   html {
-    font-size: 18px;
+    font-size: 16px;
+    
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
   }
 
   body {
@@ -120,27 +124,23 @@
 }
 
 .chat-messages {
-  @apply flex-1 overflow-y-auto p-4 space-y-4;
+  @apply flex-1 overflow-y-auto py-3 sm:py-4 space-y-3 sm:space-y-4;
 }
 
 .message-user {
-  @apply bg-afya-neutral text-afya-dark p-3 rounded-2xl rounded-tr-sm max-w-[85%] ml-auto;
+  @apply bg-afya-neutral text-afya-dark p-2 sm:p-3 rounded-2xl rounded-tr-sm max-w-[85%] ml-auto;
 }
 
 .message-bot {
-  @apply bg-afya-primary text-white p-3 rounded-2xl rounded-tl-sm max-w-[85%];
+  @apply bg-afya-primary text-white p-2 sm:p-3 rounded-2xl rounded-tl-sm max-w-[85%];
 }
 
 .message-user, .message-bot {
-  @apply shadow-sm;
+  @apply shadow-sm text-sm sm:text-base;
 }
 
 @media (max-width: 640px) {
-  html {
-    font-size: 16px;
-  }
-  
   .message-user, .message-bot {
-    @apply max-w-[90%];
+    @apply max-w-[90%] text-sm;
   }
 }

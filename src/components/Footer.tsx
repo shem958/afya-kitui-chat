@@ -7,13 +7,13 @@ export const Footer: React.FC = () => {
   const { t } = useLanguage();
   
   return (
-    <footer className="p-4 bg-afya-neutral text-afya-dark text-sm">
-      <div className="flex flex-wrap justify-center gap-4">
+    <footer className="p-3 sm:p-4 bg-afya-neutral text-afya-dark text-xs sm:text-sm">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
         <a 
           href="#privacy" 
           className="flex items-center gap-1 hover:text-afya-primary transition-colors"
         >
-          <Flag className="h-4 w-4" />
+          <Flag className="h-3 w-3 sm:h-4 sm:w-4" />
           <span>{t('privacyPolicy')}</span>
         </a>
         
@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
           href="#report" 
           className="flex items-center gap-1 hover:text-afya-primary transition-colors"
         >
-          <AlertTriangle className="h-4 w-4" />
+          <AlertTriangle className="h-3 w-3 sm:h-4 sm:w-4" />
           <span>{t('reportIssue')}</span>
         </a>
       </div>

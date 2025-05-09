@@ -11,10 +11,12 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { GitBranch } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   
   const handleQuickAction = (action: string) => {
     // In a real application, these would trigger specific functionality
@@ -31,10 +33,10 @@ const Index = () => {
         <Header />
         
         <main className="flex-1 overflow-hidden flex flex-col">
-          <div className="container mx-auto p-4 max-w-3xl">
-            <div className="flex justify-between items-center mb-4">
+          <div className="container mx-auto px-2 sm:px-4 max-w-3xl">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-3">
               <QuickActionButtons onActionClick={handleQuickAction} />
-              <Button variant="outline" asChild className="flex items-center gap-2 border-afya-secondary hover:bg-afya-secondary hover:text-white">
+              <Button variant="outline" asChild className="flex items-center justify-center gap-2 border-afya-secondary hover:bg-afya-secondary hover:text-white w-full sm:w-auto">
                 <Link to="/flowcharts">
                   <GitBranch className="h-4 w-4" />
                   <span>{t('viewFlowcharts') || 'View Flowcharts'}</span>
@@ -43,7 +45,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="flex-1 overflow-hidden container mx-auto max-w-3xl">
+          <div className="flex-1 overflow-hidden container mx-auto px-2 sm:px-4 max-w-3xl">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full border border-afya-secondary/30">
               <ChatInterface />
             </div>

@@ -6,6 +6,7 @@ import { Send, Mic, MicOff } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import useSpeechRecognition from '@/hooks/useSpeechRecognition';
 import { useToast } from '@/components/ui/use-toast';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Message {
   id: string;
@@ -17,6 +18,7 @@ interface Message {
 export const ChatInterface: React.FC = () => {
   const { language, t } = useLanguage();
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -144,7 +146,7 @@ export const ChatInterface: React.FC = () => {
   
   return (
     <div className="chat-container">
-      <div className="chat-messages bg-afya-neutral/30">
+      <div className="chat-messages bg-afya-neutral/30 px-2 sm:px-4">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -165,31 +167,36 @@ export const ChatInterface: React.FC = () => {
         <div ref={messagesEndRef} />
       </div>
       
-      <div className="p-4 bg-white border-t border-gray-200">
+      <div className="p-2 sm:p-4 bg-white border-t border-gray-200">
         <div className="flex gap-2">
           <Input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder={t('inputPlaceholder')}
-            className="text-lg"
+            className="text-base sm:text-lg"
           />
           
           <Button
             onClick={handleVoiceInput}
             type="button"
             variant={isListening ? "destructive" : "secondary"}
-            size="icon"
+            size={isMobile ? "sm" : "icon"}
           >
-            {isListening ? <MicOff /> : <Mic />}
+            {isListening ? <MicOff className={isMobile ? "h-4 w-4" : "h-5 w-5"} /> : <Mic className={isMobile ? "h-4 w-4" : "h-5 w-5"} />}
           </Button>
           
-          <Button onClick={handleSend} type="button" variant="default" size="icon">
-            <Send />
+          <Button 
+            onClick={handleSend} 
+            type="button" 
+            variant="default" 
+            size={isMobile ? "sm" : "icon"}
+          >
+            <Send className={isMobile ? "h-4 w-4" : "h-5 w-5"} />
           </Button>
         </div>
         {isListening && (
-          <div className="text-sm text-afya-secondary mt-2 animate-pulse">
+          <div className="text-xs sm:text-sm text-afya-secondary mt-2 animate-pulse">
             {t('listening')}
           </div>
         )}
