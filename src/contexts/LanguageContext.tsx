@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'en' | 'sw';
@@ -92,6 +91,47 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     }
     console.warn(`Translation missing for key: ${key} in language: ${language}`);
     return key;
+  };
+
+  const translations = {
+    en: {
+      welcomeMessage: 'Hello! How can I help with your health service questions today?',
+      inputPlaceholder: 'Type your message here...',
+      send: 'Send',
+      listening: 'Listening...',
+      clinicLocations: 'Clinic Locations',
+      scheduleAppointment: 'Schedule Appointment',
+      faqs: 'FAQs',
+      online: 'Online',
+      offline: 'Offline',
+      onlineMode: 'Online Mode',
+      offlineMode: 'Offline Mode - Limited Features Available',
+      languageToggle: 'Kiswahili',
+      viewFlowcharts: 'View Flowcharts',
+      flowcharts: 'Application Flowcharts',
+      userFlow: 'User Flow',
+      systemArchitecture: 'System Architecture',
+      conversationFlow: 'Conversation Flow',
+    },
+    sw: {
+      welcomeMessage: 'Habari! Je, nawezaje kukusaidia na maswali yako kuhusu huduma za afya leo?',
+      inputPlaceholder: 'Andika ujumbe wako hapa...',
+      send: 'Tuma',
+      listening: 'Inasikiliza...',
+      clinicLocations: 'Maeneo ya Kliniki',
+      scheduleAppointment: 'Panga Miadi',
+      faqs: 'Maswali',
+      online: 'Mtandaoni',
+      offline: 'Nje ya Mtandao',
+      onlineMode: 'Hali ya Mtandao',
+      offlineMode: 'Nje ya Mtandao - Huduma Zilizopunguzwa Zinapatikana',
+      languageToggle: 'English',
+      viewFlowcharts: 'Tazama Chati za Mtiririko',
+      flowcharts: 'Chati za Mtiririko wa Programu',
+      userFlow: 'Mtiririko wa Mtumiaji',
+      systemArchitecture: 'Muundo wa Mfumo',
+      conversationFlow: 'Mtiririko wa Mazungumzo',
+    },
   };
 
   return (

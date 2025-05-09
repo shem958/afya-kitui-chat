@@ -7,9 +7,14 @@ import ChatInterface from '@/components/ChatInterface';
 import ConnectivityStatus from '@/components/ConnectivityStatus';
 import QuickActionButtons from '@/components/QuickActionButtons';
 import { useToast } from '@/components/ui/use-toast';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { FlowChart } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   
   const handleQuickAction = (action: string) => {
     // In a real application, these would trigger specific functionality
@@ -27,7 +32,15 @@ const Index = () => {
         
         <main className="flex-1 overflow-hidden flex flex-col">
           <div className="container mx-auto p-4 max-w-3xl">
-            <QuickActionButtons onActionClick={handleQuickAction} />
+            <div className="flex justify-between items-center mb-4">
+              <QuickActionButtons onActionClick={handleQuickAction} />
+              <Button variant="outline" asChild className="flex items-center gap-2 border-afya-secondary hover:bg-afya-secondary hover:text-white">
+                <Link to="/flowcharts">
+                  <FlowChart className="h-4 w-4" />
+                  <span>{t('viewFlowcharts') || 'View Flowcharts'}</span>
+                </Link>
+              </Button>
+            </div>
           </div>
           
           <div className="flex-1 overflow-hidden container mx-auto max-w-3xl">
