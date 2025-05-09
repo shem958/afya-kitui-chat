@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Language } from 'lucide-react';
+import { Languages } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const LanguageToggle: React.FC = () => {
@@ -17,7 +17,7 @@ export const LanguageToggle: React.FC = () => {
       className="rounded-full flex items-center gap-2 bg-afya-neutral border-afya-secondary hover:bg-afya-neutral/80 hover:text-afya-secondary transition-colors" 
       onClick={toggleLanguage}
     >
-      <Language className="h-4 w-4" />
+      <Languages className="h-4 w-4" />
       <span>{t('languageToggle')}</span>
     </Button>
   );
